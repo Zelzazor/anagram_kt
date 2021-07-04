@@ -43,8 +43,8 @@ tasks.test {
 
     maxHeapSize = "1G"
 
-    // testLogging {
-    //     events("PASSED", "SKIPPED", "FAILED")
-    // }
+    testLogging {
+        events("PASSED", "SKIPPED", "FAILED")
+    }
 
 }
