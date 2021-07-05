@@ -33,7 +33,15 @@ class AppTest {
         var list : List<String>? = listOf<String>("hola", "adios", "adois")
         var test = Anagram(list)
         var actualResult = test.toList()
-        var expectedResult = listOf<List<String>>(listOf<String>("adios", "adois"), listOf<String>("hola"))
+        var expectedResult = listOf<List<String>>(listOf<String>("adios", "adois"))
+        Assert.assertEquals(expectedResult, actualResult)
+    }
+
+    @Test fun ListHasMultipleAnagrams(){
+        var list : List<String>? = listOf<String>("amor", "roma", "mora", "ramo", "romo", "moro")
+        var test = Anagram(list)
+        var actualResult = test.toList()
+        var expectedResult = listOf<List<String>>(listOf<String>("amor", "roma", "mora", "ramo"), listOf<String>("romo", "moro"))
         Assert.assertEquals(expectedResult, actualResult)
     }
 
