@@ -5,14 +5,23 @@ package anagram_kt
 
 import org.junit.Test
 import org.junit.Assert
+import com.sun.source.tree.ThrowTree
 
 
 class AppTest {
-    @Test fun appHasAGreeting() {
-        Assert.assertTrue(true);
+    
+    @Test fun whenStringNullExceptionThrown() {
+        Assert.assertThrows(IllegalArgumentException::class.java){
+            var str : String? = null; 
+            var test = Anagram(str); 
+        }
     }
 
-    @Test fun appAnother() {
-        Assert.assertTrue(true);
+    @Test fun whenListNullExceptionThrown() {
+        Assert.assertThrows(IllegalArgumentException::class.java){
+            var lst : List<String>? = null; 
+            var test = Anagram(lst); 
+        }
     }
+
 }

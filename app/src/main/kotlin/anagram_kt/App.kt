@@ -3,13 +3,21 @@
  */
 package anagram_kt
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello World!"
+class Anagram {
+    constructor(words: List<String>?){
+        if(words == null){
+            throw IllegalArgumentException("String is null")
         }
+    }
+
+    constructor(fileName: String?){
+        if(fileName == null){
+            throw IllegalArgumentException("String is null")
+        }
+
+    }
 }
 
 fun main() {
-    println(App().greeting)
+   
 }
