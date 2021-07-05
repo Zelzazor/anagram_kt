@@ -23,5 +23,18 @@ class AppTest {
             var test = Anagram(lst); 
         }
     }
+    @Test fun ifListHasNoElements(){
+        Assert.assertThrows(IllegalArgumentException::class.java){
+            var list : List<String>? = listOf<String>()
+            var test = Anagram(list)
+        }
+    }
+    @Test fun ListHasElements(){
+        var list : List<String>? = listOf<String>("hola", "adios", "adois")
+        var test = Anagram(list)
+        var actualResult = test.toList()
+        var expectedResult = listOf<List<String>>(listOf<String>("adios", "adois"), listOf<String>("hola"))
+        Assert.assertEquals(expectedResult, actualResult)
+    }
 
 }
