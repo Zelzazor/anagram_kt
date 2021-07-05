@@ -3,10 +3,18 @@
  */
 package anagram_kt
 
-fun main() {
-    var list : List<String>? = listOf<String>("hola", "adios", "adois")
-    var test = Anagram(list)
-    var listdepruebaparaserbienduro = test.toList()
-    println(listdepruebaparaserbienduro) 
+fun main(args: Array<String>) {
+    if(args.size < 2){
+        var init = System.currentTimeMillis()
+        val anagram = Anagram(args[0])
+        anagram.print();
+        var end = System.currentTimeMillis()
+        var diff = end - init
+        println("Time ellapsed: "+diff+"ms")
+    }
+        
+    else{
+        println("Cantidad de argumentos inválida")
+    }
    
 }

@@ -1,4 +1,6 @@
 package anagram_kt
+import java.io.File
+import java.io.InputStream
 
 class Anagram {
     private val anagrams: MutableMap<String, MutableList<String>> = mutableMapOf<String, MutableList<String>>()
@@ -11,13 +13,22 @@ class Anagram {
         if(words.size == 0){
             throw IllegalArgumentException("List is empty")
         }
-               retrieveAnagrams(words);
+        retrieveAnagrams(words);
     }
 
     constructor(fileName: String?){
         if(fileName == null){
             throw IllegalArgumentException("String is null")
         }
+        val inputStream: InputStream = File(fileName).inputStream()
+        val inputString = inputStream.bufferedReader().use { it.readText() }
+        //println(inputString)
+        val words: List<String> = inputString.split("\n");
+        if(words.size == 0){
+            throw IllegalArgumentException("List is empty")
+        }
+        //println(words[0])
+        retrieveAnagrams(words);
 
     }
 
@@ -29,9 +40,17 @@ class Anagram {
                 
             }
         }  
-        return list //la pampara 
+        return list
          
     }
+
+    fun print() {
+        anagrams.forEach{ _, v ->
+            if(v.size > 1){
+                println(v.joinToString())
+            }
+        }  
+   }
 
     private fun retrieveAnagrams(words: List<String>){
         for(i in 0..words.size-1){
